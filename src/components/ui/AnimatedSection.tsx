@@ -13,7 +13,7 @@ export function AnimatedSection({
   className = "",
   delay = 0,
 }: AnimatedSectionProps) {
-  const { ref, isInView } = useInView(0.15);
+  const { ref, isInView } = useInView(0.08);
 
   return (
     <div
@@ -21,8 +21,8 @@ export function AnimatedSection({
       className={className}
       style={{
         opacity: isInView ? 1 : 0,
-        transform: isInView ? "translateY(0)" : "translateY(24px)",
-        transition: `opacity 0.6s ease-out ${delay}ms, transform 0.6s ease-out ${delay}ms`,
+        transform: isInView ? "translateY(0) scale(1)" : "translateY(36px) scale(0.98)",
+        transition: `opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1) ${delay}ms, transform 0.9s cubic-bezier(0.22, 1, 0.36, 1) ${delay}ms`,
       }}
     >
       {children}

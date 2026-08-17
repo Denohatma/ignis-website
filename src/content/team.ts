@@ -4,7 +4,6 @@ export interface TeamMember {
 }
 
 export const teamLeads: TeamMember[] = [
-  { name: "Paul Osogo", role: "CEO" },
   { name: "Dennis Nderitu", role: "Managing Director" },
   { name: "Elizabeth Ooro", role: "Commercial Lead" },
   { name: "Brian Mwangi", role: "Digital Platforms Lead" },

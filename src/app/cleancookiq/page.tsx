@@ -35,22 +35,25 @@ const capabilities = [
 export default function CleanCookIQPage() {
   return (
     <>
-      <section className="bg-[var(--color-primary-dark)] py-20">
-        <Container>
+      <section className="relative overflow-hidden bg-[var(--color-primary-dark)] py-28 lg:py-36">
+        <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary-dark)] via-[#062D0A] to-[var(--color-primary-dark)]" />
+        <div className="absolute -right-40 -top-40 h-[500px] w-[500px] rounded-full bg-[var(--color-accent)]/8 blur-[100px]" />
+        <div className="absolute -left-20 bottom-0 h-[300px] w-[300px] rounded-full bg-[var(--color-primary)]/10 blur-[80px]" />
+        <Container className="relative">
           <div className="max-w-3xl">
-            <p className="mb-4 text-xs font-bold uppercase tracking-[0.12em] text-[var(--color-accent-light)]">
+            <p className="mb-6 text-sm font-bold uppercase tracking-[0.2em] text-[var(--color-accent-light)]">
               Powered by Ignis
             </p>
-            <h1 className="font-[family-name:var(--font-heading)] text-4xl font-bold text-white sm:text-5xl">
+            <h1 className="font-[family-name:var(--font-heading)] text-4xl font-bold leading-[1.05] text-white sm:text-5xl lg:text-6xl">
               CleanCookIQ
             </h1>
-            <p className="mt-6 text-lg leading-relaxed text-white/80">
+            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-white/70 sm:text-xl">
               Our measurement, reporting, and verification platform. CleanCookIQ
               tracks every institution from assessment through deployment to
               ongoing performance, providing the verified data that triggers
               payments and validates impact.
             </p>
-            <div className="mt-8">
+            <div className="mt-10">
               <Button
                 href="https://cleancookiq.com"
                 variant="accent"
@@ -61,24 +64,26 @@ export default function CleanCookIQPage() {
             </div>
           </div>
         </Container>
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--color-accent)] to-transparent opacity-30" />
       </section>
 
-      <section className="bg-[var(--color-bg-light)] py-20">
+      <section className="bg-[var(--color-bg-light)] py-24 lg:py-32">
         <Container>
           <SectionHeading
             title="What CleanCookIQ does"
             subtitle="End-to-end programme intelligence, from pipeline to verified impact."
+            eyebrow="Capabilities"
           />
           <div className="grid gap-8 md:grid-cols-2">
             {capabilities.map((cap) => (
               <div
                 key={cap.title}
-                className="rounded-lg border border-[var(--color-bg-tint)] bg-white p-6"
+                className="rounded-[var(--radius-card)] border border-[var(--color-bg-tint)] bg-white p-8 transition-all duration-500 hover:border-[var(--color-primary)]/15 hover:shadow-xl hover:shadow-[var(--color-primary)]/5 lg:p-10"
               >
-                <h3 className="font-[family-name:var(--font-heading)] text-lg font-bold text-[var(--color-primary-dark)]">
+                <h3 className="font-[family-name:var(--font-heading)] text-xl font-bold text-[var(--color-primary-dark)]">
                   {cap.title}
                 </h3>
-                <p className="mt-3 text-[15px] leading-relaxed text-[var(--color-text-muted)]">
+                <p className="mt-4 text-[15px] leading-relaxed text-[var(--color-text-muted)]">
                   {cap.description}
                 </p>
               </div>
@@ -87,20 +92,23 @@ export default function CleanCookIQPage() {
         </Container>
       </section>
 
-      <section className="bg-white py-20">
+      <section className="bg-white py-24 lg:py-32">
         <Container>
           <div className="mx-auto max-w-3xl text-center">
-            <h2 className="font-[family-name:var(--font-heading)] text-3xl font-bold text-[var(--color-primary-dark)]">
+            <p className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-[var(--color-text-muted)]">
+              The foundation
+            </p>
+            <h2 className="font-[family-name:var(--font-heading)] text-3xl font-bold text-[var(--color-primary-dark)] sm:text-4xl lg:text-5xl">
               Why this matters
             </h2>
-            <p className="mt-6 text-lg leading-relaxed text-[var(--color-text-muted)]">
+            <p className="mt-8 text-lg leading-relaxed text-[var(--color-text-muted)]">
               Pipeline visibility, standardised contracting, embedded MRV, and
               portfolio-level performance data are the four ingredients
               infrastructure capital requires. Every previous attempt at clean
               cooking finance at scale failed because at least one was missing.
               CleanCookIQ provides all four.
             </p>
-            <div className="mt-10">
+            <div className="mt-12">
               <Button
                 href="https://cleancookiq.com"
                 variant="primary"

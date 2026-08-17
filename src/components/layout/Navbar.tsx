@@ -20,29 +20,25 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => {
-    setMobileOpen(false);
-  }, [pathname]);
-
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
+      className={`sticky top-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "border-b border-[var(--color-bg-tint)] bg-white/95 shadow-sm backdrop-blur-md"
-          : "bg-white/80 backdrop-blur-sm"
+          ? "bg-white/70 shadow-[0_1px_0_rgba(0,0,0,0.06)] backdrop-blur-2xl backdrop-saturate-[1.8]"
+          : "bg-white/40 backdrop-blur-md backdrop-saturate-150"
       }`}
     >
-      <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 sm:px-12 lg:px-20">
-        <Link href="/" className="flex items-center gap-3 transition-opacity hover:opacity-80">
+      <nav className="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-6 sm:px-12 lg:px-20">
+        <Link href="/" className="flex items-center gap-3 transition-opacity duration-300 hover:opacity-80">
           <Image
             src="/images/ignis-logo.jpeg"
             alt="Ignis Innovation"
             width={40}
             height={40}
-            className="rounded"
+            className="rounded-xl"
             priority
           />
-          <span className="font-[family-name:var(--font-heading)] text-xl font-bold text-[var(--color-primary-dark)]">
+          <span className="font-[family-name:var(--font-heading)] text-xl font-bold tracking-wide text-[var(--color-primary-dark)]">
             IGNIS
           </span>
         </Link>
@@ -65,16 +61,16 @@ export function Navbar() {
               >
                 <Link
                   href={item.href}
-                  className={`rounded-[var(--radius-btn)] px-3 py-2 text-[13px] font-medium transition-colors ${
+                  className={`rounded-xl px-4 py-2 text-[13px] font-medium transition-all duration-300 ${
                     isActive
-                      ? "text-[var(--color-primary)]"
-                      : "text-[var(--color-text-body)] hover:bg-[var(--color-bg-tint)] hover:text-[var(--color-primary)]"
+                      ? "bg-[var(--color-primary)]/8 text-[var(--color-primary)]"
+                      : "text-[var(--color-text-body)]/80 hover:bg-black/[0.04] hover:text-[var(--color-primary)]"
                   }`}
                 >
                   {item.label}
                   {"children" in item && (
                     <svg
-                      className={`ml-1 inline h-3 w-3 transition-transform ${
+                      className={`ml-1 inline h-3 w-3 transition-transform duration-300 ${
                         openDropdown === item.href ? "rotate-180" : ""
                       }`}
                       fill="none"
@@ -91,15 +87,15 @@ export function Navbar() {
                   )}
                 </Link>
                 {"children" in item && openDropdown === item.href && (
-                  <div className="absolute left-0 top-full mt-1 w-56 animate-fade-in-up rounded-lg border border-[var(--color-bg-tint)] bg-white py-2 shadow-xl">
+                  <div className="absolute left-0 top-full mt-2 w-56 animate-scale-in rounded-2xl border border-white/60 bg-white/80 py-2 shadow-xl shadow-black/8 backdrop-blur-2xl backdrop-saturate-[1.8]">
                     {item.children.map((child) => (
                       <Link
                         key={child.href}
                         href={child.href}
-                        className={`block px-4 py-2.5 text-sm transition-colors ${
+                        className={`block px-5 py-3 text-sm transition-all duration-200 ${
                           pathname === child.href
-                            ? "bg-[var(--color-bg-tint)] text-[var(--color-primary)] font-medium"
-                            : "text-[var(--color-text-body)] hover:bg-[var(--color-bg-tint)] hover:text-[var(--color-primary)]"
+                            ? "bg-[var(--color-primary)]/8 text-[var(--color-primary)] font-medium"
+                            : "text-[var(--color-text-body)] hover:bg-black/[0.03] hover:text-[var(--color-primary)]"
                         }`}
                       >
                         {child.label}
@@ -115,7 +111,7 @@ export function Navbar() {
         <div className="hidden lg:block">
           <Link
             href="/contact"
-            className="rounded-[var(--radius-btn)] bg-[var(--color-primary)] px-5 py-2.5 text-sm font-medium text-white transition-all hover:bg-[var(--color-primary-hover)] hover:shadow-md"
+            className="rounded-xl bg-[var(--color-primary)] px-6 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-[var(--color-primary-hover)] hover:shadow-lg hover:shadow-[var(--color-primary)]/25"
           >
             Get in touch
           </Link>
@@ -123,11 +119,11 @@ export function Navbar() {
 
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="rounded-[var(--radius-btn)] p-2 text-[var(--color-text-body)] transition-colors hover:bg-[var(--color-bg-tint)] lg:hidden"
+          className="rounded-xl p-2.5 text-[var(--color-text-body)] transition-colors hover:bg-black/[0.04] lg:hidden"
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
         >
           <svg
-            className="h-6 w-6 transition-transform"
+            className="h-6 w-6 transition-transform duration-300"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"

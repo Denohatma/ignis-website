@@ -7,13 +7,15 @@ interface CardProps {
 export function Card({ children, className = "", dark = false }: CardProps) {
   return (
     <div
-      className={`rounded-lg p-6 ${
+      className={`rounded-[var(--radius-card)] p-8 transition-all duration-500 lg:p-10 ${
         dark
-          ? "bg-[var(--color-primary-dark)] text-white"
-          : "bg-white border border-[var(--color-bg-tint)]"
+          ? "bg-white/[0.06] text-white backdrop-blur-xl border border-white/10"
+          : "glass-card glossy-shine"
       } ${className}`}
     >
-      {children}
+      <div className="relative z-10">
+        {children}
+      </div>
     </div>
   );
 }

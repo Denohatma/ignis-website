@@ -36,16 +36,18 @@ const valueProps = [
 export default function FinanciersPage() {
   return (
     <>
-      <section className="bg-[var(--color-primary-dark)] py-20">
-        <Container>
+      <section className="relative overflow-hidden bg-[var(--color-primary-dark)] py-28 lg:py-36">
+        <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary-dark)] via-[#062D0A] to-[var(--color-primary-dark)]" />
+        <div className="absolute -right-40 top-0 h-[500px] w-[500px] rounded-full bg-[var(--color-primary)]/8 blur-[100px]" />
+        <Container className="relative">
           <div className="max-w-3xl">
-            <p className="mb-4 text-xs font-bold uppercase tracking-[0.12em] text-[var(--color-accent-light)]">
+            <p className="mb-6 text-sm font-bold uppercase tracking-[0.2em] text-[var(--color-accent-light)]">
               For financiers
             </p>
-            <h1 className="font-[family-name:var(--font-heading)] text-4xl font-bold text-white sm:text-5xl">
+            <h1 className="font-[family-name:var(--font-heading)] text-4xl font-bold leading-[1.05] text-white sm:text-5xl lg:text-6xl">
               We turn energy waste into infrastructure.
             </h1>
-            <p className="mt-6 text-lg leading-relaxed text-white/80">
+            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-white/70 sm:text-xl">
               Structured, verified, portfolio-level clean energy assets in
               Africa. We build the pipeline, standardise the contracts, verify
               the performance, and structure the vehicle. You deploy capital
@@ -53,9 +55,10 @@ export default function FinanciersPage() {
             </p>
           </div>
         </Container>
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--color-accent)] to-transparent opacity-30" />
       </section>
 
-      <section className="bg-[var(--color-bg-light)] py-20">
+      <section className="bg-[var(--color-bg-light)] py-24 lg:py-32">
         <Container>
           <SectionHeading
             title="What we provide to financiers"
@@ -67,7 +70,7 @@ export default function FinanciersPage() {
                 <h3 className="font-[family-name:var(--font-heading)] text-lg font-bold text-[var(--color-primary-dark)]">
                   {prop.title}
                 </h3>
-                <p className="mt-3 text-[15px] leading-relaxed text-[var(--color-text-muted)]">
+                <p className="mt-4 text-[15px] leading-relaxed text-[var(--color-text-muted)]">
                   {prop.description}
                 </p>
               </Card>
@@ -76,21 +79,24 @@ export default function FinanciersPage() {
         </Container>
       </section>
 
-      <section className="bg-[var(--color-primary-deep)] py-16">
-        <Container>
-          <div className="flex flex-col items-center justify-between gap-6 text-center md:flex-row md:text-left">
+      <section className="relative overflow-hidden bg-[var(--color-primary-deep)] py-20 lg:py-24">
+        <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-primary-deep)] via-[var(--color-primary-dark)] to-[var(--color-primary-deep)]" />
+        <Container className="relative">
+          <div className="flex flex-col items-center justify-between gap-8 text-center md:flex-row md:text-left">
             <div>
-              <h2 className="font-[family-name:var(--font-heading)] text-2xl font-bold text-white">
+              <h2 className="font-[family-name:var(--font-heading)] text-2xl font-bold text-white sm:text-3xl">
                 Interested in the pipeline?
               </h2>
-              <p className="mt-2 text-white/70">
+              <p className="mt-3 text-lg text-white/60">
                 We will walk you through the portfolio structure, the contracting
                 model, and the performance data.
               </p>
             </div>
-            <Button href="/contact" variant="accent" arrow>
-              Talk to us
-            </Button>
+            <div className="shrink-0">
+              <Button href="/contact" variant="accent" arrow>
+                Talk to us
+              </Button>
+            </div>
           </div>
         </Container>
       </section>

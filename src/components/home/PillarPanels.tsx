@@ -34,23 +34,31 @@ const pillars = [
 
 export function PillarPanels() {
   return (
-    <section className="bg-white py-24">
+    <section className="bg-white py-16 lg:py-20">
       <Container>
-        <div className="grid gap-8 md:grid-cols-2">
+        <AnimatedSection>
+          <p className="mb-4 text-center text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-text-muted)]">
+            Two pillars
+          </p>
+          <h2 className="mx-auto mb-10 max-w-2xl text-center font-[family-name:var(--font-heading)] text-3xl font-bold text-[var(--color-primary-dark)] sm:text-4xl lg:text-5xl">
+            One company. Two pillars. End to end.
+          </h2>
+        </AnimatedSection>
+        <div className="grid gap-8 md:grid-cols-2 lg:gap-10">
           {pillars.map((pillar, i) => (
             <AnimatedSection key={pillar.href} delay={i * 150}>
-              <div className="group relative flex h-full flex-col overflow-hidden rounded-xl border-2 border-[var(--color-bg-tint)] p-8 transition-all duration-300 hover:border-[var(--color-primary)] hover:shadow-xl sm:p-10">
-                <div className="absolute left-0 top-0 h-1.5 w-full origin-left scale-x-0 bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-primary-hover)] transition-transform duration-500 group-hover:scale-x-100" />
-                <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-[var(--color-bg-tint)] text-[var(--color-primary)] transition-colors group-hover:bg-[var(--color-primary)] group-hover:text-white">
+              <div className="glass-card glossy-shine group relative flex h-full flex-col rounded-[var(--radius-card)] p-8 sm:p-10 lg:p-12">
+                <div className="absolute left-0 top-0 h-[3px] w-full origin-left scale-x-0 rounded-t-[var(--radius-card)] bg-gradient-to-r from-[var(--color-primary)] via-[var(--color-primary-hover)] to-[var(--color-accent)] transition-transform duration-700 group-hover:scale-x-100" />
+                <div className="relative z-10 mb-8 flex h-16 w-16 items-center justify-center rounded-2xl bg-[var(--color-bg-tint)] text-[var(--color-primary)] transition-all duration-500 group-hover:bg-[var(--color-primary)] group-hover:text-white group-hover:shadow-lg group-hover:shadow-[var(--color-primary)]/25">
                   {pillar.icon}
                 </div>
-                <h3 className="font-[family-name:var(--font-heading)] text-2xl font-bold text-[var(--color-primary-dark)] sm:text-3xl">
+                <h3 className="relative z-10 font-[family-name:var(--font-heading)] text-2xl font-bold text-[var(--color-primary-dark)] sm:text-3xl lg:text-[2rem]">
                   {pillar.title}
                 </h3>
-                <p className="mt-4 flex-1 leading-relaxed text-[var(--color-text-muted)]">
+                <p className="relative z-10 mt-5 flex-1 text-[17px] leading-relaxed text-[var(--color-text-muted)]">
                   {pillar.description}
                 </p>
-                <div className="mt-8">
+                <div className="relative z-10 mt-10">
                   <Button href={pillar.href} variant="primary-dark" arrow>
                     {pillar.cta}
                   </Button>
