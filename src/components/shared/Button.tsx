@@ -30,15 +30,15 @@ type ButtonProps = ButtonAsButton | ButtonAsLink;
 
 const variantStyles: Record<ButtonVariant, string> = {
   primary:
-    "bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-hover)]",
+    "bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-hover)] hover:shadow-md active:scale-[0.98]",
   "primary-dark":
-    "bg-[var(--color-primary-dark)] text-white hover:bg-[var(--color-primary-deep)]",
+    "bg-[var(--color-primary-dark)] text-white hover:bg-[var(--color-primary-deep)] hover:shadow-md active:scale-[0.98]",
   secondary:
-    "border-2 border-[var(--color-primary)] text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-white",
+    "border-2 border-white/30 text-white hover:bg-white/10 hover:border-white/50 active:scale-[0.98]",
   accent:
-    "bg-[var(--color-accent)] text-white hover:opacity-90",
+    "bg-[var(--color-accent)] text-white hover:bg-[#c96f00] hover:shadow-md active:scale-[0.98]",
   ghost:
-    "border border-[var(--color-primary-hover)] text-[var(--color-primary-hover)] hover:bg-[var(--color-bg-tint)]",
+    "border border-[var(--color-primary-hover)] text-[var(--color-primary-hover)] hover:bg-[var(--color-bg-tint)] active:scale-[0.98]",
 };
 
 export function Button({
@@ -50,14 +50,21 @@ export function Button({
   ...rest
 }: ButtonProps) {
   const baseStyles =
-    "inline-flex items-center gap-2 rounded-[var(--radius-btn)] px-6 py-3 text-base font-[family-name:var(--font-body)] font-medium transition-colors duration-200 min-h-[44px]";
+    "inline-flex items-center gap-2 rounded-[var(--radius-btn)] px-6 py-3 text-base font-[family-name:var(--font-body)] font-medium transition-all duration-200 min-h-[44px] cursor-pointer";
 
-  const combinedClassName = `${baseStyles} ${variantStyles[variant]} ${className}`;
+  const combinedClassName = `group ${baseStyles} ${variantStyles[variant]} ${className}`;
 
   const content = (
     <>
       {children}
-      {arrow && <span aria-hidden="true">&rarr;</span>}
+      {arrow && (
+        <span
+          aria-hidden="true"
+          className="inline-block transition-transform duration-200 group-hover:translate-x-1"
+        >
+          &rarr;
+        </span>
+      )}
     </>
   );
 

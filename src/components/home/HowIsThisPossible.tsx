@@ -1,5 +1,8 @@
+"use client";
+
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/shared/SectionHeading";
+import { AnimatedSection } from "@/components/ui/AnimatedSection";
 
 const steps = [
   {
@@ -24,26 +27,30 @@ const steps = [
 
 export function HowIsThisPossible() {
   return (
-    <section className="bg-[var(--color-bg-light)] py-20">
+    <section className="bg-[var(--color-bg-light)] py-24">
       <Container>
-        <SectionHeading
-          title="How is this possible?"
-          subtitle="Institutions already pay for energy. We make sure they get clean energy instead."
-          align="center"
-        />
+        <AnimatedSection>
+          <SectionHeading
+            title="How is this possible?"
+            subtitle="Institutions already pay for energy. We make sure they get clean energy instead."
+            align="center"
+          />
+        </AnimatedSection>
         <div className="grid gap-8 md:grid-cols-3">
-          {steps.map((step) => (
-            <div key={step.number} className="relative">
-              <div className="mb-4 font-[family-name:var(--font-heading)] text-5xl font-bold text-[var(--color-primary)]/15">
-                {step.number}
+          {steps.map((step, i) => (
+            <AnimatedSection key={step.number} delay={i * 150}>
+              <div className="relative rounded-xl bg-white p-8 shadow-sm transition-shadow hover:shadow-md">
+                <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-[var(--color-primary)] font-[family-name:var(--font-heading)] text-lg font-bold text-white">
+                  {step.number}
+                </div>
+                <h3 className="font-[family-name:var(--font-heading)] text-xl font-bold text-[var(--color-primary-dark)]">
+                  {step.title}
+                </h3>
+                <p className="mt-3 text-[15px] leading-relaxed text-[var(--color-text-muted)]">
+                  {step.description}
+                </p>
               </div>
-              <h3 className="font-[family-name:var(--font-heading)] text-xl font-bold text-[var(--color-primary-dark)]">
-                {step.title}
-              </h3>
-              <p className="mt-3 text-[15px] leading-relaxed text-[var(--color-text-muted)]">
-                {step.description}
-              </p>
-            </div>
+            </AnimatedSection>
           ))}
         </div>
       </Container>
